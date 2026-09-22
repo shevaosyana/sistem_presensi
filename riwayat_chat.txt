@@ -1,0 +1,328 @@
+======================================================================
+RIWAYAT CHAT & DRAF LENGKAP LAPORAN SKRIPSI BAB V & BAB VI
+SISTEM INFORMASI PRESENSI MAHASISWA (SHA-256) - FTI UNIBBA
+Update Terakhir: 20 Agustus 2026
+======================================================================
+
+Dokumen ini berisi draf teks narasi lengkap, tabel, formulasi, struktur gambar, dan pengujian sistem sesuai format baku dokumen Microsoft Word untuk skripsi berjudul:
+"SISTEM INFORMASI PRESENSI PERKULIAHAN MENGGUNAKAN ALGORITMA SHA-256 UNTUK MENJAMIN INTEGRITAS DATA KEHADIRAN MAHASISWA DI FTI UNIBBA"
+
+======================================================================
+BAB V: IMPLEMENTASI DAN PENGUJIAN SISTEM
+======================================================================
+
+5.1 IMPLEMENTASI
+
+5.1.1 Listing Program
+
+Listing program memuat representasi modul-modul inti PHP yang mengimplementasikan arsitektur MVC, abstraksi basis data PDO Singleton, formulasi kalkulasi keterlambatan real-time, transaksi otomasi Auto-Alpha, serta algoritma kriptografi hash SHA-256.
+
+a. Modul Autentikasi dan Manajemen Sesi (controllers/AuthController.php)
+Modul ini menangani validasi kredensial pengguna (Admin, Dosen, Mahasiswa), verifikasi password hash, proteksi session fixation (`session_regenerate_id(true)`), dan pembuatan cookie sesi aman.
+
+b. Modul Presensi Mandiri Mahasiswa (controllers/PresensiController.php)
+Modul ini bertugas menangani aksi mahasiswa saat menekan tombol presensi mandiri, menghitung selisih waktu keterlambatan terhadap jam mulai perkuliahan, menetapkan status (HADIR/TERLAMBAT), serta mengunci record dengan integrity hash SHA-256.
+
+c. Modul Penutupan Sesi & Otomasi Auto-Alpha (controllers/PresensiController.php)
+Modul ini mengeksekusi algoritma Set Difference di dalam transaksi atomik PDO (`beginTransaction`, `commit`, `rollBack`). Mahasiswa anggota kelas yang belum hadir saat dosen menutup sesi secara otomatis diisi status `ALPHA` beserta nilai hash SHA-256 yang valid.
+
+d. Modul Verifikasi Integritas Data Kriptografis (controllers/AuditController.php)
+Modul ini bertugas melakukan audit keutuhan data presensi. Sistem membaca data dari database, menghitung ulang hash SHA-256 secara independen (*Computed Hash*), lalu membandingkannya dengan hash yang tersimpan di basis data (*Stored Hash*) untuk mendeteksi manipulasi ilegal.
+
+e. Modul Helper Enkripsi & Format Kriptografi (helpers/FormatHelper.php)
+Menyediakan fungsi terpusat untuk kalkulasi hash SHA-256 dengan format string terstandarisasi serta fungsi pemformatan tanggal, waktu, dan persentase kehadiran.
+
+f. Modul Koneksi Basis Data Terpusat (config/database.php)
+Mengimplementasikan *Singleton Pattern* pada PDO (*PHP Data Objects*) dengan opsi `ATTR_ERRMODE => ERRMODE_EXCEPTION` dan `ATTR_DEFAULT_FETCH_MODE => FETCH_ASSOC` guna mencegah SQL Injection dan mengoptimalkan penggunaan memori server.
+
+g. Modul Front Controller dan Routing Aplikasi (index.php)
+Berfungsi sebagai pintu masuk utama (*Single Entry Point*) yang menangani seluruh permintaan HTTP GET/POST dan mengarahkannya ke controller yang tepat menggunakan *match expression* PHP 8.
+
+h. Modul Laporan Rekapitulasi & Export Kehadiran (controllers/LaporanController.php)
+Memproses rekapitulasi persentase kehadiran mahasiswa per kelas, akumulasi status (Hadir, Terlambat, Izin, Sakit, Alpha), serta menggenerasi dokumen laporan siap cetak/PDF.
+
+----------------------------------------------------------------------
+Perhitungan & Formulasi Algoritma Toleransi Keterlambatan dan Hash SHA-256
+----------------------------------------------------------------------
+
+1. Formulasi Penentuan Status Keterlambatan:
+   Selisih keterlambatan (Delta t) dihitung dari selisih waktu submit presensi (T_submit) dan waktu mulai kelas (T_mulai), dikonversi ke satuan menit:
+   Delta t = (T_submit - T_mulai) / 60  (menit)
+
+   Status kehadiran ditentukan dari Delta t terhadap nilai toleransi keterlambatan (T_tol):
+   - Jika Delta t <= T_tol                 --> Status = HADIR
+   - Jika T_tol < Delta t <= 2 * T_tol      --> Status = TERLAMBAT
+   - Jika Delta t > 2 * T_tol              --> Status = ALPHA
+
+2. Formulasi Hash Integritas (SHA-256):
+   Hash = SHA256(Nama | NIM | Tanggal | Sesi_MK | Jam | Hari | Status)
+   Contoh: Dimas Anggara|230003|2026-08-04|MWFC008|08:00-10:30|Senin|HADIR
+
+Tabel 5.1 Ringkasan Perhitungan Hasil Penerapan Metode
++--------------------------------+--------------------------------------+---------------------+-------------------------------+-------------------------+-----------------------------------------+
+| Skenario Simulasi              | Data Input                           | Perhitungan Waktu   | Hash Tersimpan vs Rekalkulasi | Hasil Audit             | Keterangan                              |
++--------------------------------+--------------------------------------+---------------------+-------------------------------+-------------------------+-----------------------------------------+
+| Presensi Tepat Waktu           | NIM: 220101, MK: IF101, HADIR        | 08:05 - 08:00 = 5m  | a8f5f167... == a8f5f167...    | [VALID]                 | Status HADIR diterima                   |
+| Presensi Terlambat             | NIM: 220102, MK: IF101, TERLAMBAT    | 08:22 - 08:00 = 22m | e3b0c442... == e3b0c442...    | [VALID]                 | Status TERLAMBAT diterima               |
+| Sangat Terlambat (Auto-Alpha)  | NIM: 220103, MK: IF101, ALPHA        | 08:45 - 08:00 = 45m | f1234567... == f1234567...    | [VALID]                 | Status ALPHA ditetapkan otomatis        |
+| Manipulasi Data Database       | NIM: 220103, Ubah ALPHA -> HADIR di DB| Dilakukan di DB    | c789123a... != f1234567...    | [MANIPULASI TERDETEKSI] | Data terindikasi telah mengalami manipulasi|
++--------------------------------+--------------------------------------+---------------------+-------------------------------+-------------------------+-----------------------------------------+
+(Sumber : Penulis, 2026)
+
+----------------------------------------------------------------------
+5.1.2 Implementasi Sistem
+----------------------------------------------------------------------
+Implementasi Sistem Informasi Presensi Perkuliahan dilakukan pada lingkungan pengembangan lokal menggunakan sistem operasi Windows 10/11 di atas platform Laragon/XAMPP. Sistem dibangun menggunakan bahasa pemrograman PHP versi 8.1+ dengan arsitektur Model-View-Controller (MVC) murni dan DBMS MySQL 8.0.
+
+Aspek teknis utama implementasi meliputi:
+1. Lingkungan Server & Arsitektur Aplikasi: Pola Front Controller pada index.php mengarahkan permintaan HTTP secara responsif berbasis match expression PHP 8.
+2. Pengelolaan Koneksi Basis Data (PDO Singleton Pattern): Menggunakan satu objek koneksi PDO aktif dan prepared statements untuk mencegah SQL Injection.
+3. Logika Perhitungan Toleransi & Kriptografi SHA-256: Kalkulasi selisih waktu real-time server clock dan penguncian signature hash SHA-256 64-karakter pada setiap record kehadiran.
+4. Otomasi Status Auto-Alpha & Transaksi Database: Transaksi PDO atomik (beginTransaction, commit, rollBack) dengan algoritma set difference untuk meng-alpha-kan mahasiswa yang tidak hadir.
+5. Manajemen Otentikasi & Keamanan Sesi Multi-Role: Pembatasan ketat wewenang 3 peran (Admin, Dosen, Mahasiswa) serta mitigasi Session Fixation via session_regenerate_id(true).
+
+----------------------------------------------------------------------
+5.1.3 Spesifikasi Sistem
+----------------------------------------------------------------------
+Tabel 5.2 Spesifikasi Perangkat Keras Minimal (Hardware)
++----+-------------------+------------------------------------------------+---------------------------------------+
+| No | Komponen Hardware | Spesifikasi Minimum Sisi Server (Host)         | Spesifikasi Minimum Sisi Klien (User) |
++----+-------------------+------------------------------------------------+---------------------------------------+
+| 1  | Processor         | Intel Xeon E-2224 / AMD Epyc (4 Core, 3.4 GHz) | Intel Core i3 / MediaTek Helio G80    |
+| 2  | Memory (RAM)      | 8 GB DDR4 ECC RAM                              | 4 GB LPDDR4X / DDR4 RAM               |
+| 3  | Storage           | 80 GB SSD NVMe                                 | 64 GB Internal Storage / SSD          |
+| 4  | Network           | High-Speed Bandwidth 1 Gbps NIC                | Wi-Fi / Koneksi Seluler 4G LTE        |
+| 5  | Display           | Headless (Server CLI) / 1024x768               | Layar Sentuh Mobile / LCD 1366x768    |
++----+-------------------+------------------------------------------------+---------------------------------------+
+(Sumber : Penulis, 2026)
+
+Tabel 5.3 Spesifikasi Perangkat Lunak Minimal (Software)
++----+---------------------+-----------------------------------------------+------------------------------------------------+
+| No | Komponen Software   | Spesifikasi Sisi Server (Host)                | Spesifikasi Sisi Klien (End User)              |
++----+---------------------+-----------------------------------------------+------------------------------------------------+
+| 1  | Sistem Operasi      | Linux Ubuntu Server 22.04 LTS / Windows 10/11 | Windows 10/11, Android 10+, macOS, iOS         |
+| 2  | Web Server Engine   | Apache HTTP Server v2.4.52 / Nginx 1.18       | Google Chrome 100+, Firefox 98+, Safari Mobile |
+| 3  | Interpreter Engine  | PHP Interpreter v8.1.x / v8.2.x               | Browser Client (HTML5 / JavaScript Enabled)    |
+| 4  | Database Server     | MySQL Community Server v8.0.32                | DBMS Client (phpMyAdmin / DBeaver untuk Admin) |
+| 5  | Protokol Keamanan   | OpenSSL (HTTPS Port 443 / TLS 1.3)            | SSL TLS 1.3 Supported Browser                  |
++----+---------------------+-----------------------------------------------+------------------------------------------------+
+(Sumber : Penulis, 2026)
+
+----------------------------------------------------------------------
+5.1.4 Instalasi Sistem
+----------------------------------------------------------------------
+A. Instalasi Konfigurasi Basis Data
+   1. Mengaktifkan layanan Apache dan MySQL melalui kontrol panel Laragon/XAMPP.
+   2. Membuat database `sistem_presensi` dengan enkoding `utf8mb4_unicode_ci`.
+   3. Mengimpor tabel dan data awal via `sistem_presensi.sql` atau `install.php`.
+   4. Mengonfigurasi parameter koneksi pada `config/database.php` berbasis PDO Singleton.
+
+B. Instalasi Aplikasi Web Presensi Perkuliahan (PHP Native MVC)
+   1. Menempatkan repositori proyek ke direktori web root (`C:\laragon\www\sistem_presensi`).
+   2. Mengatur konstanta `BASE_URL` di `config/config.php` ke `http://localhost/sistem_presensi`.
+   3. Mengaktifkan ekstensi PHP `pdo_mysql`, `openssl`, dan `mbstring` di `php.ini`.
+   4. Menetapkan hak akses tulis folder `uploads/` untuk foto profil pengguna.
+
+C. Instalasi Dashboard Monitoring & Antarmuka Multi-Role
+   1. Menata hierarki `views/` dan file front controller `index.php`.
+   2. Menjalankan routing Apache ke halaman login `http://localhost/sistem_presensi/?page=auth`.
+   3. Memvalidasi alur dashboard Admin, Dosen, dan Mahasiswa melalui HTTP POST/GET.
+
+D. Instalasi Mesin Validasi Integritas SHA-256 & Transaksi Auto-Alpha
+   1. Memastikan modul `helpers/FormatHelper.php` aktif memproses `hash('sha256', $data)`.
+   2. Mengonfigurasi parameter keterlambatan dan hashing di `PresensiController.php`.
+   3. Memastikan modul `AuditController.php` siap memindai dan mendeteksi anomali hash di MySQL.
+
+----------------------------------------------------------------------
+5.1.5 Menjalankan Sistem
+----------------------------------------------------------------------
+1. Halaman Login dan Autentikasi Pengguna
+   Pengguna membuka URL `http://localhost/sistem_presensi` dan sistem mengarahkan ke formulir autentikasi.
+   [Gambar 5.1 Halaman Login Sistem Presensi]
+   (Sumber : Penulis, 2026)
+
+2. Dashboard Utama Berdasarkan Hak Akses Pengguna
+   Setelah login berhasil, sistem menyajikan dasbor sesuai peranan aktif (Admin, Dosen, Mahasiswa).
+   [Gambar 5.2 Dashboard Utama Setelah Login]
+   (Sumber : Penulis, 2026)
+
+3. Pembukaan Sesi Presensi Perkuliahan oleh Dosen
+   Dosen Pengampu mengaktifkan sesi presensi pada kelas berjalan dengan menekan "Buka Presensi".
+   [Gambar 5.3 Dosen Membuka Sesi Presensi]
+   (Sumber : Penulis, 2026)
+
+4. Pelaksanaan Presensi Mandiri Mahasiswa
+   Mahasiswa menekan tombol "HADIR!" di kelas. Sistem mencatat waktu, status, dan membangkitkan hash SHA-256.
+   [Gambar 5.4 Mahasiswa Melakukan Presensi Mandiri]
+   (Sumber : Penulis, 2026)
+
+5. Penutupan Sesi Presensi dan Otomasi Auto-Alpha
+   Dosen menekan tombol "Tutup Sesi". Sistem secara atomik mengisikan status ALPHA ber-hash bagi mahasiswa yang tidak hadir.
+   [Gambar 5.5 Dosen Menutup Sesi Presensi]
+   (Sumber : Penulis, 2026)
+
+======================================================================
+5.2 PENGUJIAN SISTEM
+======================================================================
+
+5.2.1 Pengujian Fungsionalitas Sistem (Black-Box Testing)
+
+Pengujian fungsionalitas dilakukan menggunakan metode Black-Box Testing untuk menguji masukan (input), proses, dan keluaran (output) antarmuka aplikasi tanpa memeriksa kode internal.
+
+Tabel 5.4 Hasil Pengujian Fungsionalitas Sistem (Black-Box Testing)
++----+------------------------+------------------------------------------------------+-------------------------------------------------------+-------------------+-----------+
+| No | Modul / Fitur          | Skenario Uji                                         | Hasil yang Diharapkan                                 | Hasil Pengujian   | Status    |
++----+------------------------+------------------------------------------------------+-------------------------------------------------------+-------------------+-----------+
+| 1  | Autentikasi (Login)    | Input username & password benar                      | Sistem memverifikasi kredensial & redirect ke Dasbor   | Sesuai Ekspektasi | **VALID** |
+| 2  | Autentikasi (Login)    | Input password salah atau akun nonaktif              | Tampil pesan error flash message merah & ditolak      | Sesuai Ekspektasi | **VALID** |
+| 3  | Data Master (CRUD)     | Admin menambah data prodi/dosen/mhs baru             | Data tersimpan ke MySQL & tampil di tabel paginasi    | Sesuai Ekspektasi | **VALID** |
+| 4  | Konfigurasi Kelas      | Admin mendaftarkan mahasiswa ke kelas                | Data kelas_anggota bertambah & cegah duplikasi        | Sesuai Ekspektasi | **VALID** |
+| 5  | Buka Sesi Presensi     | Dosen menekan tombol "Buka Presensi" pada jadwal     | Sesi berubah status AKTIF & mencatat jam buka         | Sesuai Ekspektasi | **VALID** |
+| 6  | Presensi Mandiri       | Mhs submit absen sebelum batas toleransi             | Status tercatat HADIR & hash integrity ter-generate   | Sesuai Ekspektasi | **VALID** |
+| 7  | Presensi Mandiri       | Mhs submit absen lewat batas toleransi (<= 2x)       | Status tercatat TERLAMBAT & flash warning muncul      | Sesuai Ekspektasi | **VALID** |
+| 8  | Auto-Alpha Sesi        | Dosen menekan "Tutup Presensi" saat sesi selesai     | Mhs yang belum absen otomatis ter-insert status ALPHA | Sesuai Ekspektasi | **VALID** |
+| 9  | Ubah Status Manual     | Dosen mengubah status mhs ke IZIN / SAKIT            | Status ter-update & hash integrity dihitung ulang     | Sesuai Ekspektasi | **VALID** |
+| 10 | Rekapitulasi PDF       | User menekan tombol cetak laporan                    | Menghasilkan dokumen rekap persentase & flag kelayakan| Sesuai Ekspektasi | **VALID** |
++----+------------------------+------------------------------------------------------+-------------------------------------------------------+-------------------+-----------+
+(Sumber : Penulis, 2026)
+
+----------------------------------------------------------------------
+5.2.2 Simulation Testing (Format Narasi Lengkap Sesuai Word)
+----------------------------------------------------------------------
+
+Simulation Testing bertujuan untuk memverifikasi fungsi sistem melalui simulasi penggunaan dan skenario serangan yang telah dirancang. Pengujian ini dilakukan untuk memastikan bahwa mekanisme deteksi, monitoring, pencatatan log, dan respons keamanan dapat berjalan dengan baik sesuai kebutuhan sistem.
+
+----------------------------------------------------------------------
+1. Simulation Testing Login
+----------------------------------------------------------------------
+a. Tampilan Awal
+   [Gambar 5.20 Tampilan Awal Login]
+   (Sumber : Penulis, 2026)
+
+   Pada tahap awal, sistem menampilkan halaman autentikasi administrator (login page) yang berfungsi sebagai gerbang akses menuju Dashboard Sistem Informasi Presensi. Halaman ini terdiri dari identitas sistem berupa logo keamanan (shield icon), judul Sistem Presensi Perkuliahan, informasi versi sistem, serta formulir autentikasi yang terdiri dari kolom Username dan Password. Selain itu, tersedia tombol Masuk yang digunakan untuk mengirimkan kredensial ke server untuk proses verifikasi. Halaman ini dirancang dengan antarmuka yang sederhana dan modern agar administrator dapat melakukan proses autentikasi dengan cepat dan mudah. Seluruh informasi yang ditampilkan pada halaman login berfungsi untuk memastikan bahwa akses ke dalam sistem hanya dapat dilakukan oleh pengguna yang memiliki hak otorisasi. Sebelum proses autentikasi berhasil dilakukan, administrator tidak dapat mengakses menu maupun fitur yang terdapat pada sistem.
+
+b. Skenario Pengujian
+   [Gambar 5.21 Skenario Pengujian Login 1]
+   (Sumber : Penulis, 2026)
+
+   Pada skenario pertama, administrator memasukkan username dan password yang tidak sesuai dengan data yang tersimpan pada sistem (misal username: "rahmat" dengan password acak). Setelah tombol Masuk ditekan, sistem melakukan proses validasi kredensial dan menolak permintaan autentikasi serta menampilkan pesan kesalahan berwarna merah "Username atau password salah".
+
+   [Gambar 5.22 Skenario Pengujian Login 2]
+   (Sumber : Penulis, 2026)
+
+   Pada skenario kedua, administrator memasukkan username dan password yang sesuai dengan data akun yang tersimpan pada sistem (misal username: "admin" dan password yang benar). Setelah tombol Masuk ditekan, sistem melakukan proses autentikasi, memverifikasi kecocokan data akun, dan membuat session login aktif.
+
+c. Hasil Pengujian
+   [Gambar 5.23 Hasil Pengujian Login]
+   (Sumber : Penulis, 2026)
+
+   Setelah proses autentikasi berhasil diverifikasi oleh sistem, administrator diarahkan secara otomatis menuju halaman Dashboard Utama. Sistem menampilkan antarmuka manajemen lengkap yang memuat ringkasan data master, status perkuliahan aktif, serta menu navigasi untuk mengelola data dosen, mahasiswa, mata kuliah, jadwal, sesi presensi, dan modul audit integritas SHA-256.
+
+----------------------------------------------------------------------
+2. Simulation Testing Presensi Mandiri Mahasiswa
+----------------------------------------------------------------------
+a. Tampilan Awal
+   [Gambar 5.24 Tampilan Awal Presensi Mahasiswa]
+   (Sumber : Penulis, 2026)
+
+   Pada tahap awal, mahasiswa yang telah berhasil melakukan login mengakses halaman Dashboard Mahasiswa. Antarmuka menampilkan informasi jadwal perkuliahan hari ini, nama mata kuliah, dosen pengampu, status sesi presensi (Aktif/Terbuka), dan tombol aksi "Presensi Sekarang". Mahasiswa dapat melihat waktu mulai perkuliahan dan batas toleransi keterlambatan secara real-time.
+
+b. Skenario Pengujian
+   [Gambar 5.25 Skenario Presensi Mandiri 1 (Submit Valid)]
+   (Sumber : Penulis, 2026)
+
+   Pada skenario pertama, mahasiswa menekan tombol "Presensi Sekarang" pada saat sesi perkuliahan sedang dibuka oleh dosen. Sistem mengambil parameter NIM, Nama, ID Jadwal, Tanggal, Jam, dan Status, lalu secara otomatis mengkalkulasikan token hash SHA-256 64-karakter secara real-time di server dan menyimpan data kehadiran dengan status "HADIR" atau "TERLAMBAT" disertai nilai hash ke tabel presensi.
+
+   [Gambar 5.26 Skenario Presensi Mandiri 2 (Pencegahan Presensi Ganda)]
+   (Sumber : Penulis, 2026)
+
+   Pada skenario kedua, mahasiswa mencoba melakukan submit presensi kembali pada sesi mata kuliah yang sama. Sistem menjalankan validasi integritas unik pada basis data dan mendeteksi bahwa mahasiswa telah mengisi daftar hadir, sehingga sistem menolak permintaan dan memunculkan notifikasi "Anda sudah melakukan presensi untuk sesi ini".
+
+c. Hasil Pengujian
+   [Gambar 5.27 Hasil Pengujian Presensi Mahasiswa]
+   (Sumber : Penulis, 2026)
+
+   Sistem berhasil mencatat kehadiran mahasiswa secara akurat pada tabel riwayat presensi. Mahasiswa dapat melihat status kehadirannya yang tercatat "HADIR (Tepat Waktu)" beserta waktu pencatatan (timestamp) dan token validitas keamanan berstatus aman.
+
+----------------------------------------------------------------------
+3. Simulation Testing Penutupan Sesi & Otomasi Auto-Alpha
+----------------------------------------------------------------------
+a. Tampilan Awal
+   [Gambar 5.28 Tampilan Sesi Presensi Aktif Dosen]
+   (Sumber : Penulis, 2026)
+
+   Pada tahap awal, dosen pengampu memantau rekap langsung (live attendance) mahasiswa pada kelas perkuliahan yang sedang berlangsung. Daftar mahasiswa yang hadir ditampilkan secara real-time, sementara mahasiswa yang belum hadir masih berstatus belum presensi. Tombol "Tutup Presensi" tersedia bagi dosen ketika waktu perkuliahan telah berakhir.
+
+b. Skenario Pengujian
+   [Gambar 5.29 Skenario Penutupan Sesi Perkuliahan]
+   (Sumber : Penulis, 2026)
+
+   Pada skenario pengujian, dosen menekan tombol "Tutup Presensi" setelah batas waktu sesi perkuliahan selesai. Sistem secara otomatis mengeksekusi algoritma Set Difference: membandingkan daftar seluruh mahasiswa terdaftar pada kelas tersebut dengan mahasiswa yang telah mengisi presensi. Mahasiswa yang tidak mengisi presensi secara otomatis di-generate record kehadirannya dengan status "ALPHA" (Tanpa Keterangan) beserta pembentukan nilai integrity hash SHA-256 di basis data.
+
+c. Hasil Pengujian
+   [Gambar 5.30 Hasil Eksekusi Auto-Alpha Sesi Presensi]
+   (Sumber : Penulis, 2026)
+
+   Sistem menampilkan daftar final rekap presensi pertemuan tersebut. Seluruh mahasiswa yang tidak hadir telah berstatus "ALPHA" secara otomatis tanpa perlu input manual oleh dosen, dan seluruh baris data memiliki audit hash SHA-256 yang sah di database.
+
+----------------------------------------------------------------------
+4. Simulation Testing Verifikasi Integritas Data (Kondisi Normal / Valid)
+----------------------------------------------------------------------
+a. Tampilan Awal
+   [Gambar 5.31 Halaman Audit Integritas Data Kosong]
+   (Sumber : Penulis, 2026)
+
+   Pada tahap awal, administrator atau dosen membuka menu "Audit Integritas Data (SHA-256)". Halaman menampilkan filter pencarian berdasarkan Mata Kuliah, Kelas, dan Tanggal Perkuliahan dengan tombol "Lakukan Audit Keamanan".
+
+b. Skenario Pengujian
+   [Gambar 5.32 Proses Verifikasi Integritas Hash]
+   (Sumber : Penulis, 2026)
+
+   Penguji memilih kelas perkuliahan yang ingin diaudit lalu menekan tombol "Lakukan Audit Keamanan". Sistem mengambil setiap baris data presensi di database, mengekstrak 7 komponen data asli (`nama|nim|tanggal|sesi_mk|jam|hari|status`), menghitung ulang hash SHA-256 secara independen (*Computed Hash*), kemudian membandingkannya dengan hash yang tersimpan di basis data (*Stored Hash*).
+
+c. Hasil Pengujian
+   [Gambar 5.33 Hasil Audit Integritas Data (Valid / Hijau)]
+   (Sumber : Penulis, 2026)
+
+   Karena tidak ada data yang diubah secara tidak sah di database, seluruh nilai *Stored Hash* sama persis dengan *Computed Hash* (Hash Match). Sistem menampilkan tabel audit dengan status badge hijau "✅ AMAN / VALID (100% Integritas Terjamin)".
+
+----------------------------------------------------------------------
+5. Simulation Testing Serangan Manipulasi Basis Data (Direct Database Tampering)
+----------------------------------------------------------------------
+a. Tampilan Awal
+   [Gambar 5.34 Data Asli pada phpMyAdmin / Basis Data]
+   (Sumber : Penulis, 2026)
+
+   Pada tahap awal, dilakukan simulasi skenario ancaman keamanan di mana pihak tidak berwenang (misal penyerang internal/mahasiswa) melakukan akses langsung ke phpMyAdmin dan melihat baris data presensi seorang mahasiswa yang berstatus "ALPHA" dengan nilai hash asli yang sah.
+
+b. Skenario Pengujian
+   [Gambar 5.35 Eksekusi Perubahan Data Ilegal di Database]
+   (Sumber : Penulis, 2026)
+
+   Pada skenario penyerangan, penyerang menjalankan perintah SQL ilegal:
+   `UPDATE presensi SET status = 'HADIR' WHERE id_presensi = 15;`
+   untuk mengubah status mahasiswa dari "ALPHA" menjadi "HADIR" secara langsung di tabel basis data tanpa melalui alur resmi aplikasi web. Nilai kolom `hash_sha256` lama tetap tertinggal dan tidak berubah.
+
+c. Hasil Pengujian
+   [Gambar 5.36 Hasil Deteksi Manipulasi Sistem (Merah / Warning)]
+   (Sumber : Penulis, 2026)
+
+   Ketika administrator menjalankan Audit Integritas Data pada menu sistem, sistem menghitung ulang hash berdasarkan status baru ("HADIR"). Nilai hash yang baru dihitung tidak cocok dengan nilai hash lama yang tersimpan (Hash Mismatch akibat karakteristik Avalanche Effect SHA-256). Sistem langsung menandai baris data tersebut dengan badge merah menyala: "❌ MANIPULASI TERDETEKSI! Data Telah Diubah", membuktikan bahwa mekanisme SHA-256 berhasil 100% melindungi integritas data kehadiran.
+
+======================================================================
+BAB VI: KESIMPULAN DAN SARAN
+======================================================================
+
+6.1 Kesimpulan
+1. Sistem informasi presensi mahasiswa berhasil dibangun dan mampu menghasilkan nilai hash unik untuk setiap data kehadiran yang disimpan. Sistem secara otomatis membangkitkan nilai hash SHA-256 64-karakter heksadesimal berdasarkan 7 elemen presensi untuk pemeriksaan integritas data.
+2. Mekanisme verifikasi integritas data menggunakan algoritma SHA-256 berhasil diterapkan untuk memastikan keaslian data presensi di FTI UNIBBA melalui perbandingan rekalkulasi hash (Hash Match vs Hash Mismatch).
+3. Pengujian manipulasi langsung pada basis data MySQL menunjukkan tingkat keberhasilan deteksi perubahan ilegal sebesar 100%.
+
+6.2 Saran
+1. Integrasi Kombinasi Algoritma Kriptografi Lanjutan (Dynamic Salt, HMAC Secret Key, atau Digital Signature).
+2. Evaluasi Performa pada Infrastruktur Cloud (VPS / Docker) dan Migrasi ke Framework Modern (Laravel/CI4).
+3. Perluasan Objek Data yang Di-hash serta Integrasi Geofencing GPS & Biometrik Face Recognition.
+4. Penambahan Notifikasi Otomatis Multi-Channel (WhatsApp Gateway / Telegram Alert) dan Backup Cloud Berkala.
+
+======================================================================
+

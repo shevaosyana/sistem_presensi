@@ -1,0 +1,60 @@
+<mxfile host="Electron" modified="2026-09-01T00:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="seq_08" name="Sequence Diagram 8: Rekap Presensi &amp; Cetak Laporan PDF">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <mxCell id="actor_icon" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="55" y="35" width="30" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_label" value="Pengguna" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="35" y="92" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_view" value="View (rekap_praktikum.php)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="190" y="45" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_ctrl" value="RekapController" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="45" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_pdf" value="PDFEngine" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="45" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_db" value="Database MySQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="35" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="line_actor" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="70" y="115" as="sourcePoint" /><mxPoint x="70" y="560" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_view" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="290" y="85" as="sourcePoint" /><mxPoint x="290" y="560" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_ctrl" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="510" y="85" as="sourcePoint" /><mxPoint x="510" y="560" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_pdf" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="730" y="85" as="sourcePoint" /><mxPoint x="730" y="560" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_db" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="900" y="85" as="sourcePoint" /><mxPoint x="900" y="560" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m1" value="1. Pilih Filter &amp; Klik 'Tampilkan Rekap' / 'Cetak PDF'" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="70" y="130" as="sourcePoint" /><mxPoint x="290" y="130" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m2" value="2. GET /rekap/generate {filter}" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="290" y="160" as="sourcePoint" /><mxPoint x="510" y="160" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m3" value="3. getRekapData(filter)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="190" as="sourcePoint" /><mxPoint x="900" y="190" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m4" value="4. SELECT mhs, count(hadir), count(alpha), persentase FROM presensi" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="900" y="220" as="sourcePoint" /><mxPoint x="510" y="220" as="targetPoint" /></mxGeometry></mxCell>
+
+        <!-- Alt Frame -->
+        <mxCell id="alt_box" value="alt [Aksi Cetak PDF]" style="shape=umlFrame;whiteSpace=wrap;html=1;width=140;height=25;fillColor=none;strokeColor=#000000;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="250" width="880" height="260" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="m5" value="5a. renderPDF(rekapData)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="285" as="sourcePoint" /><mxPoint x="730" y="285" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m6" value="6a. Stream File PDF Laporan Praktikum" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="730" y="315" as="sourcePoint" /><mxPoint x="510" y="315" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m7" value="7a. Download File PDF Laporan &amp; Tampilkan Rekap" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="345" as="sourcePoint" /><mxPoint x="70" y="345" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="alt_sep" value="" style="line;strokeWidth=1;dashed=1;fillColor=none;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="40" y="375" width="880" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="alt_label" value="[else - Tampilkan di Screen]" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontStyle=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="45" y="380" width="180" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="m8" value="5b. Render Data Rekap ke View" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="420" as="sourcePoint" /><mxPoint x="290" y="420" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m9" value="6b. Tampilkan Tabel Rekapitulasi &amp; Indikator % Kehadiran" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="290" y="450" as="sourcePoint" /><mxPoint x="70" y="450" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

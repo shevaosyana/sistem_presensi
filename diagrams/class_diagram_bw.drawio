@@ -1,0 +1,81 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Alur Penelitian" id="alurPenelitian">
+    <mxGraphModel dx="1703" dy="940" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="mulai" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Mulai" vertex="1">
+          <mxGeometry height="40" width="120" x="360" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="identifikasi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Identifikasi Permasalahan" vertex="1">
+          <mxGeometry height="40" width="240" x="300" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="pengumpulan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Pengumpulan Data&#xa;(Observasi, Wawancara, Studi Literatur)" vertex="1">
+          <mxGeometry height="50" width="240" x="300" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="analisiskebutuhan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Analisis Kebutuhan Sistem" vertex="1">
+          <mxGeometry height="40" width="240" x="300" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="perancangan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Perancangan Sistem&#xa;(Termasuk Skema Hash SHA-256)" vertex="1">
+          <mxGeometry height="50" width="240" x="300" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="implementasi" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Implementasi SHA-256&#xa;pada Sistem Presensi" vertex="1">
+          <mxGeometry height="50" width="240" x="300" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="pengujian" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Pengujian Sistem&#xa;(Black Box, Integritas Data &amp; UAT)" vertex="1">
+          <mxGeometry height="50" width="240" x="300" y="530" as="geometry" />
+        </mxCell>
+        <mxCell id="decision" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Sistem Berjalan Sesuai?" vertex="1">
+          <mxGeometry height="80" width="200" x="320" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="analisishasil" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Analisis Hasil" vertex="1">
+          <mxGeometry height="40" width="240" x="300" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="laporan" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Laporan" vertex="1">
+          <mxGeometry height="40" width="240" x="300" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="selesai" parent="1" style="rounded=1;arcSize=50;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#000000;" value="Selesai" vertex="1">
+          <mxGeometry height="40" width="120" x="360" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="mulai" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="identifikasi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="identifikasi" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="pengumpulan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="pengumpulan" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="analisiskebutuhan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="analisiskebutuhan" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="perancangan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="perancangan" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="implementasi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="implementasi" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="pengujian">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="pengujian" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="decision">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="decision" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="analisishasil" value="Ya">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="analisishasil" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="laporan">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="laporan" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;" target="selesai">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="decision" style="edgeStyle=orthogonalEdgeStyle;html=1;endArrow=block;elbow=vertical;startArrow=none;exitX=1;exitY=0.5;entryX=1;entryY=0.5;" target="perancangan" value="Tidak">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="660" />
+              <mxPoint x="640" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

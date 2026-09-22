@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="erd_diagram" name="ERD - Sistem Presensi Praktikum">
+    <mxGraphModel dx="1460" dy="806" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;fontStyle=1;fontSize=16;labelBackgroundColor=none;" value="Entity Relationship Diagram - Sistem Presensi Praktikum" vertex="1">
+          <mxGeometry height="30" width="550" x="300" y="15" as="geometry" />
+        </mxCell>
+        <mxCell id="e_roles_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="roles" vertex="1">
+          <mxGeometry height="80" width="180" x="40" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_roles_a" parent="e_roles_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;nama_role&#10;created_at" vertex="1">
+          <mxGeometry height="56" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="users" vertex="1">
+          <mxGeometry height="130" width="180" x="40" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="e_users_a" parent="e_users_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;role_id (FK)&#10;username&#10;password&#10;is_active&#10;created_at&#10;updated_at" vertex="1">
+          <mxGeometry height="106" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_prodi_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="program_studi" vertex="1">
+          <mxGeometry height="110" width="180" x="270" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_prodi_a" parent="e_prodi_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;kode&#10;nama&#10;jenjang&#10;fakultas" vertex="1">
+          <mxGeometry height="86" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mhs_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="mahasiswa" vertex="1">
+          <mxGeometry height="140" width="180" x="270" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mhs_a" parent="e_mhs_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;user_id (FK)&#10;prodi_id (FK)&#10;nim&#10;nama&#10;jenis_kelamin&#10;angkatan&#10;foto" vertex="1">
+          <mxGeometry height="116" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dosen_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="dosen" vertex="1">
+          <mxGeometry height="130" width="180" x="40" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dosen_a" parent="e_dosen_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;user_id (FK)&#10;prodi_id (FK)&#10;nidn&#10;nama&#10;jenis_kelamin&#10;foto" vertex="1">
+          <mxGeometry height="106" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mk_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="mata_kuliah" vertex="1">
+          <mxGeometry height="120" width="180" x="500" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_mk_a" parent="e_mk_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;prodi_id (FK)&#10;kode&#10;nama&#10;sks&#10;jenis" vertex="1">
+          <mxGeometry height="96" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ta_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="tahun_akademik" vertex="1">
+          <mxGeometry height="110" width="180" x="730" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ta_a" parent="e_ta_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;nama&#10;tahun_mulai&#10;tahun_selesai&#10;status" vertex="1">
+          <mxGeometry height="86" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_smt_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="semester" vertex="1">
+          <mxGeometry height="100" width="180" x="730" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="e_smt_a" parent="e_smt_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;tahun_akademik_id (FK)&#10;nama_semester&#10;is_aktif" vertex="1">
+          <mxGeometry height="76" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_rng_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="ruangan" vertex="1">
+          <mxGeometry height="110" width="180" x="960" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="e_rng_a" parent="e_rng_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;kode&#10;nama&#10;kapasitas&#10;gedung" vertex="1">
+          <mxGeometry height="86" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_kls_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="kelas" vertex="1">
+          <mxGeometry height="120" width="180" x="500" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="e_kls_a" parent="e_kls_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;mata_kuliah_id (FK)&#10;dosen_id (FK)&#10;semester_id (FK)&#10;nama&#10;kapasitas" vertex="1">
+          <mxGeometry height="96" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ka_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="kelas_anggota" vertex="1">
+          <mxGeometry height="80" width="180" x="270" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="e_ka_a" parent="e_ka_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;kelas_id (FK)&#10;mahasiswa_id (FK)" vertex="1">
+          <mxGeometry height="56" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_jdw_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="jadwal" vertex="1">
+          <mxGeometry height="130" width="180" x="730" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="e_jdw_a" parent="e_jdw_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;kelas_id (FK)&#10;ruangan_id (FK)&#10;hari&#10;jam_mulai&#10;jam_selesai&#10;toleransi_menit" vertex="1">
+          <mxGeometry height="106" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_prs_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="presensi" vertex="1">
+          <mxGeometry height="150" width="180" x="960" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="e_prs_a" parent="e_prs_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;jadwal_id (FK)&#10;tanggal&#10;jam_buka&#10;jam_tutup&#10;status&#10;pertemuan_ke&#10;keterangan&#10;created_at" vertex="1">
+          <mxGeometry height="126" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dp_h" parent="1" style="swimlane;fontStyle=1;align=center;startSize=24;html=1;fontSize=11;labelBackgroundColor=none;" value="detail_presensi" vertex="1">
+          <mxGeometry height="130" width="180" x="500" y="400" as="geometry" />
+        </mxCell>
+        <mxCell id="e_dp_a" parent="e_dp_h" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;fontSize=10;labelBackgroundColor=none;" value="id (PK)&#10;presensi_id (FK)&#10;mahasiswa_id (FK)&#10;status&#10;jam_presensi&#10;keterangan&#10;created_at" vertex="1">
+          <mxGeometry height="106" width="180" y="24" as="geometry" />
+        </mxCell>
+        <mxCell id="er1" edge="1" parent="1" source="e_roles_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_users_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er2" edge="1" parent="1" source="e_users_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmandOne;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_mhs_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er3" edge="1" parent="1" source="e_users_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmandOne;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_dosen_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er4" edge="1" parent="1" source="e_prodi_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_mhs_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er5" edge="1" parent="1" source="e_prodi_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_dosen_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er6" edge="1" parent="1" source="e_prodi_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_mk_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er7" edge="1" parent="1" source="e_ta_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_smt_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er8" edge="1" parent="1" source="e_mk_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_kls_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er9" edge="1" parent="1" source="e_dosen_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_kls_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er10" edge="1" parent="1" source="e_smt_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_kls_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er11" edge="1" parent="1" source="e_kls_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_ka_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er12" edge="1" parent="1" source="e_mhs_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_ka_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er13" edge="1" parent="1" source="e_kls_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_jdw_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er14" edge="1" parent="1" source="e_rng_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_jdw_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er15" edge="1" parent="1" source="e_jdw_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_prs_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er16" edge="1" parent="1" source="e_prs_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_dp_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="er17" edge="1" parent="1" source="e_mhs_h" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthoLoop=1;jettySize=auto;endArrow=ERmany;startArrow=ERmandOne;endFill=0;startFill=0;html=1;labelBackgroundColor=none;fontColor=default;" target="e_dp_h" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,34 @@
+<mxfile host="Electron" modified="2026-09-01T00:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="act_08" name="Activity Diagram 8: Rekap Presensi &amp; Cetak Laporan PDF">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sl81" value="Input (Aktor)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="30" y="30" width="280" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl82" value="Proses (Sistem/Engine)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="310" y="30" width="320" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl83" value="Output (Dashboard/Layar)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="630" y="30" width="280" height="720" as="geometry" /></mxCell>
+        
+        <mxCell id="s81" value="" style="ellipse;html=1;shape=ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="156" y="80" width="28" height="28" as="geometry" /></mxCell>
+        <mxCell id="a81" value="Buka Menu Rekap Presensi Praktikum" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="50" y="140" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="a82" value="Pilih Filter &amp; Klik Tampilkan / Cetak PDF" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="50" y="220" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="p81" value="Query Presensi, Hitung % &amp; Render PDF" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="340" y="220" width="260" height="44" as="geometry" /></mxCell>
+        <mxCell id="d81" value="Cetak PDF Sukses?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="390" y="310" width="160" height="60" as="geometry" /></mxCell>
+        <mxCell id="o81" value="Tampilkan Tabel Rekap di Layar" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="650" y="318" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="e81" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="755" y="400" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="p82" value="Generate Stream File PDF" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="430" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="o82" value="Download PDF &amp; Tampilkan Rekap" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="650" y="430" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="e82" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="755" y="510" width="30" height="30" as="geometry" /></mxCell>
+        
+        <mxCell id="ed81" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="s81" target="a81"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed82" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a81" target="a82"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed83" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a82" target="p81"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed84" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p81" target="d81"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed85" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d81" target="o81"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed86" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o81" target="e81"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed87" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d81" target="p82"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed88" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p82" target="o82"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed89" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o82" target="e82"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

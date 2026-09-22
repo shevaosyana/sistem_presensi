@@ -1,0 +1,44 @@
+<mxfile host="Electron" modified="2026-09-01T00:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="seq_04" name="Sequence Diagram 4: Buka Sesi Presensi Praktikum">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <mxCell id="actor_icon" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="55" y="35" width="30" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_label" value="Dosen / Aslab" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="25" y="92" width="90" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_view" value="View (sesi_praktikum.php)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="190" y="45" width="200" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_ctrl" value="PresensiController" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="45" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_model" value="SesiModel" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="45" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_db" value="Database MySQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="35" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="line_actor" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="70" y="115" as="sourcePoint" /><mxPoint x="70" y="440" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_view" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="290" y="85" as="sourcePoint" /><mxPoint x="290" y="440" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_ctrl" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="510" y="85" as="sourcePoint" /><mxPoint x="510" y="440" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_model" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="730" y="85" as="sourcePoint" /><mxPoint x="730" y="440" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_db" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="900" y="85" as="sourcePoint" /><mxPoint x="900" y="440" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m1" value="1. Pilih Sesi Lab Hari Ini &amp; Klik 'Buka Sesi Presensi'" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="70" y="130" as="sourcePoint" /><mxPoint x="290" y="130" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m2" value="2. POST /sesi/buka {jadwal_id}" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="290" y="170" as="sourcePoint" /><mxPoint x="510" y="170" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m3" value="3. openSession(jadwal_id, jam_mulai)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="210" as="sourcePoint" /><mxPoint x="730" y="210" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m4" value="4. UPDATE sesi_praktikum SET status='AKTIF', jam_mulai=NOW()" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="730" y="250" as="sourcePoint" /><mxPoint x="900" y="250" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m5" value="5. DB Result Success" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="900" y="290" as="sourcePoint" /><mxPoint x="730" y="290" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m6" value="6. Return Status Sesi AKTIF" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="730" y="330" as="sourcePoint" /><mxPoint x="510" y="330" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m7" value="7. Tampilkan Antarmuka Monitoring Realtime Sesi Lab" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="370" as="sourcePoint" /><mxPoint x="70" y="370" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

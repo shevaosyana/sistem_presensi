@@ -1,0 +1,435 @@
+<mxfile host="app.diagrams.net" modified="2026-08-21T14:20:00.000Z" agent="Antigravity" version="21.0.0" type="device">
+  <diagram id="EntityClassDiagram" name="Class Diagram - Sistem Presensi Akademik">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1250" pageHeight="1900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="role" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#0284c7;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #0284c7;&quot;&gt;Role&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#e0f2fe;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ nama_role : String(50) [UK]&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#e0f2fe;strokeColor=#0284c7;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="60" y="80" width="200" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="user" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#0284c7;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #0284c7;&quot;&gt;User&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#e0f2fe;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ role_id : Integer [FK]&lt;br/&gt;+ username : String(64) [UK]&lt;br/&gt;+ password : String(255)&lt;br/&gt;+ is_active : Boolean&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#e0f2fe;strokeColor=#0284c7;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="60" y="260" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="prodi" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#059669;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #059669;&quot;&gt;ProgramStudi&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#d1fae5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ kode : String(20) [UK]&lt;br/&gt;+ nama : String(100)&lt;br/&gt;+ jenjang : Enum&lt;br/&gt;+ fakultas : String(100)&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#d1fae5;strokeColor=#059669;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="360" y="260" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="dosen" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#0284c7;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #0284c7;&quot;&gt;Dosen&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#e0f2fe;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ user_id : Integer [FK]&lt;br/&gt;+ prodi_id : Integer [FK]&lt;br/&gt;+ nidn : String(20) [UK]&lt;br/&gt;+ nama : String(100)&lt;br/&gt;+ jenis_kelamin : Enum&lt;br/&gt;+ foto : String(255)&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#e0f2fe;strokeColor=#0284c7;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="360" y="490" width="220" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="mahasiswa" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#0284c7;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #0284c7;&quot;&gt;Mahasiswa&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#e0f2fe;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ user_id : Integer [FK]&lt;br/&gt;+ prodi_id : Integer [FK]&lt;br/&gt;+ nim : String(20) [UK]&lt;br/&gt;+ nama : String(100)&lt;br/&gt;+ jenis_kelamin : Enum&lt;br/&gt;+ angkatan : Year&lt;br/&gt;+ foto : String(255)&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#e0f2fe;strokeColor=#0284c7;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="360" y="760" width="220" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="tahun_akademik" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#059669;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #059669;&quot;&gt;TahunAkademik&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#d1fae5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ nama : String(20) [UK]&lt;br/&gt;+ tahun_mulai : Year&lt;br/&gt;+ tahun_selesai : Year&lt;br/&gt;+ status : Enum&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#d1fae5;strokeColor=#059669;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="940" y="80" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="semester" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#059669;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #059669;&quot;&gt;Semester&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#d1fae5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ tahun_akademik_id : Integer [FK]&lt;br/&gt;+ nama_semester : Enum&lt;br/&gt;+ is_aktif : Boolean&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#d1fae5;strokeColor=#059669;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="940" y="280" width="220" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="mata_kuliah" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#059669;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #059669;&quot;&gt;MataKuliah&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#d1fae5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ prodi_id : Integer [FK]&lt;br/&gt;+ kode : String(20) [UK]&lt;br/&gt;+ nama : String(100)&lt;br/&gt;+ sks : Integer&lt;br/&gt;+ jenis : Enum&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#d1fae5;strokeColor=#059669;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="490" width="220" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="kelas" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#7c3aed;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #7c3aed;&quot;&gt;Kelas&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#e9d5ff;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ mata_kuliah_id : Integer [FK]&lt;br/&gt;+ dosen_id : Integer [FK]&lt;br/&gt;+ semester_id : Integer [FK]&lt;br/&gt;+ nama : String(50)&lt;br/&gt;+ kapasitas : Integer&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#e9d5ff;strokeColor=#7c3aed;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="760" width="220" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="ruangan" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#059669;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #059669;&quot;&gt;Ruangan&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#d1fae5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ kode : String(20) [UK]&lt;br/&gt;+ nama : String(100)&lt;br/&gt;+ kapasitas : Integer&lt;br/&gt;+ gedung : String(50)&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#d1fae5;strokeColor=#059669;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="940" y="760" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="kelas_anggota" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#7c3aed;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #7c3aed;&quot;&gt;KelasAnggota&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#e9d5ff;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ kelas_id : Integer [FK]&lt;br/&gt;+ mahasiswa_id : Integer [FK]&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#e9d5ff;strokeColor=#7c3aed;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="510" y="1020" width="220" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="jadwal" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#7c3aed;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #7c3aed;&quot;&gt;Jadwal&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#e9d5ff;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ kelas_id : Integer [FK]&lt;br/&gt;+ ruangan_id : Integer [FK]&lt;br/&gt;+ hari : Enum&lt;br/&gt;+ jam_mulai : Time&lt;br/&gt;+ jam_selesai : Time&lt;br/&gt;+ toleransi_menit : Integer&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#e9d5ff;strokeColor=#7c3aed;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="800" y="1020" width="220" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="presensi" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#ea580c;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #ea580c;&quot;&gt;Presensi&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#ffedd5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ jadwal_id : Integer [FK]&lt;br/&gt;+ tanggal : Date&lt;br/&gt;+ jam_buka : Time&lt;br/&gt;+ jam_tutup : Time&lt;br/&gt;+ status : Enum&lt;br/&gt;+ pertemuan_ke : Integer&lt;br/&gt;+ keterangan : Text&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#ffedd5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;border-top:1px solid #ea580c;&quot;&gt;+ bukaSesi() : Boolean&lt;br/&gt;+ tutupSesi() : Boolean&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#ffedd5;strokeColor=#ea580c;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="650" y="1290" width="220" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="detail_presensi" value="&lt;table style=&quot;width:100%;height:100%;border-collapse:collapse;font-family:Helvetica;font-size:12px;color:#1e293b;&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot;&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#ea580c;color:#ffffff;text-align:center;padding:8px;font-weight:bold;border-bottom:1px solid #ea580c;&quot;&gt;DetailPresensi&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#ffedd5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;&quot;&gt;+ id : Integer [PK]&lt;br/&gt;+ presensi_id : Integer [FK]&lt;br/&gt;+ mahasiswa_id : Integer [FK]&lt;br/&gt;+ status : Enum&lt;br/&gt;+ jam_presensi : Time&lt;br/&gt;+ keterangan : Text&lt;br/&gt;+ hash_integrity : String(255)&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td style=&quot;background-color:#ffedd5;padding:8px;text-align:left;line-height:1.4;vertical-align:top;border-top:1px solid #ea580c;&quot;&gt;+ verifikasiHash() : Boolean&lt;br/&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#ffedd5;strokeColor=#ea580c;rounded=1;shadow=1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="420" y="1610" width="250" height="215" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="user" target="role" style="endArrow=open;endSize=12;html=1;strokeColor=#0284c7;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1_name" value="memiliki" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e1">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e1">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e1_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e1">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="mahasiswa" target="user" style="endArrow=open;endSize=12;html=1;strokeColor=#0284c7;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2_name" value="sebagai" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e2">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2_src" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e2">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e2">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="dosen" target="user" style="endArrow=open;endSize=12;html=1;strokeColor=#0284c7;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3_name" value="sebagai" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e3">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3_src" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e3">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e3">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="mahasiswa" target="prodi" style="endArrow=open;endSize=12;html=1;strokeColor=#0284c7;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4_name" value="terdaftar di" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e4">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e4">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e4">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="dosen" target="prodi" style="endArrow=open;endSize=12;html=1;strokeColor=#0284c7;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5_name" value="mengajar di" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e5">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e5">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#0284c7;fontStyle=1;" vertex="1" connectable="0" parent="e5">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="mata_kuliah" target="prodi" style="endArrow=open;endSize=12;html=1;strokeColor=#059669;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6_name" value="memiliki" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#059669;fontStyle=1;" vertex="1" connectable="0" parent="e6">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#059669;fontStyle=1;" vertex="1" connectable="0" parent="e6">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e6_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#059669;fontStyle=1;" vertex="1" connectable="0" parent="e6">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="semester" target="tahun_akademik" style="endArrow=open;endSize=12;html=1;strokeColor=#059669;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7_name" value="memiliki" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#059669;fontStyle=1;" vertex="1" connectable="0" parent="e7">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7_src" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#059669;fontStyle=1;" vertex="1" connectable="0" parent="e7">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#059669;fontStyle=1;" vertex="1" connectable="0" parent="e7">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="kelas" target="mata_kuliah" style="endArrow=open;endSize=12;html=1;strokeColor=#7c3aed;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8_name" value="diajarkan pada" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e8">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e8">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e8_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e8">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="kelas" target="dosen" style="endArrow=open;endSize=12;html=1;strokeColor=#7c3aed;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9_name" value="mengampu" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e9">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e9">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e9">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="kelas" target="semester" style="endArrow=open;endSize=12;html=1;strokeColor=#7c3aed;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10_name" value="diadakan pada" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e10">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e10">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e10">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="kelas_anggota" target="kelas" style="endArrow=open;endSize=12;html=1;strokeColor=#7c3aed;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11_name" value="berisikan" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e11">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e11">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e11">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12" edge="1" parent="1" source="kelas_anggota" target="mahasiswa" style="endArrow=open;endSize=12;html=1;strokeColor=#7c3aed;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12_name" value="mengikuti" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e12">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e12">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e12_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e12">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" edge="1" parent="1" source="jadwal" target="kelas" style="endArrow=open;endSize=12;html=1;strokeColor=#7c3aed;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e13_name" value="dijadwalkan" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e13">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13_src" value="1..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e13">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e13">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" edge="1" parent="1" source="jadwal" target="ruangan" style="endArrow=open;endSize=12;html=1;strokeColor=#7c3aed;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e14_name" value="menempati" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e14">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e14">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#7c3aed;fontStyle=1;" vertex="1" connectable="0" parent="e14">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15" edge="1" parent="1" source="presensi" target="jadwal" style="endArrow=open;endSize=12;html=1;strokeColor=#ea580c;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15_name" value="mencatat sesi" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e15">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e15">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e15_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e15">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16" edge="1" parent="1" source="detail_presensi" target="presensi" style="endArrow=open;endSize=12;html=1;strokeColor=#ea580c;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e16_name" value="memiliki record" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e16">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e16">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e16_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e16">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17" edge="1" parent="1" source="detail_presensi" target="mahasiswa" style="endArrow=open;endSize=12;html=1;strokeColor=#ea580c;strokeWidth=2;edgeStyle=orthogonalEdgeStyle;curved=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e17_name" value="riwayat kehadiran" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e17">
+          <mxGeometry x="0" relative="1" as="geometry">
+            <mxPoint x="0" y="-10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17_src" value="0..*" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e17">
+          <mxGeometry x="-0.85" relative="1" as="geometry">
+            <mxPoint x="10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e17_tgt" value="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontSize=11;fontColor=#ea580c;fontStyle=1;" vertex="1" connectable="0" parent="e17">
+          <mxGeometry x="0.85" relative="1" as="geometry">
+            <mxPoint x="-10" y="10" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ClassDiagram" name="Class Diagram MVC">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="1000" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="c_presensi" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#2563eb;color:#ffffff;&quot;&gt;&lt;b&gt;PresensiController&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- presensiModel: Presensi&lt;br/&gt;- detailModel: DetailPresensi&lt;br/&gt;- jadwalModel: Jadwal&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ index(): void&lt;br/&gt;+ buka(jadwal_id): void&lt;br/&gt;+ tutup(presensi_id): void&lt;br/&gt;+ submit(presensi_id): void&lt;br/&gt;+ kelola(presensi_id): void&lt;br/&gt;+ ubahStatus(id, status): void&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#eff6ff;strokeColor=#2563eb;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="40" width="240" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="c_audit" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#2563eb;color:#ffffff;&quot;&gt;&lt;b&gt;AuditController&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- detailModel: DetailPresensi&lt;br/&gt;- formatHelper: FormatHelper&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ index(): void&lt;br/&gt;+ verifikasi(id): array&lt;br/&gt;+ auditSemua(): array&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#eff6ff;strokeColor=#2563eb;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="40" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="c_jadwal" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#2563eb;color:#ffffff;&quot;&gt;&lt;b&gt;JadwalController&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- jadwalModel: Jadwal&lt;br/&gt;- kelasModel: Kelas&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ index(): void&lt;br/&gt;+ saya(): void&lt;br/&gt;+ store(data): void&lt;br/&gt;+ update(id, data): void&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#eff6ff;strokeColor=#2563eb;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="580" y="40" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="c_auth" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#2563eb;color:#ffffff;&quot;&gt;&lt;b&gt;AuthController&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- userModel: User&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ index(): void&lt;br/&gt;+ login(user, pass): void&lt;br/&gt;+ logout(): void&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#eff6ff;strokeColor=#2563eb;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="840" y="40" width="200" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="c_rekap" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#2563eb;color:#ffffff;&quot;&gt;&lt;b&gt;RekapController&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- detailModel: DetailPresensi&lt;br/&gt;- kelasModel: Kelas&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ index(): void&lt;br/&gt;+ kelas(id): void&lt;br/&gt;+ mhs(id): void&lt;br/&gt;+ exportPdf(id): void&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#eff6ff;strokeColor=#2563eb;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="40" width="220" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="m_presensi" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#16a34a;color:#ffffff;&quot;&gt;&lt;b&gt;Presensi&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- db: PDO&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ buka(jadwal_id, pertemuanke): int&lt;br/&gt;+ tutup(presensi_id): bool&lt;br/&gt;+ getSesiAktif(jadwal_id): array&lt;br/&gt;+ getById(id): array&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#f0fdf4;strokeColor=#16a34a;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="240" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="m_detail" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#16a34a;color:#ffffff;&quot;&gt;&lt;b&gt;DetailPresensi&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- db: PDO&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ insert(data, hash): bool&lt;br/&gt;+ insertAlpha(presensi_id, mhs_id, hash): bool&lt;br/&gt;+ verifikasiIntegritas(detail_id): bool&lt;br/&gt;+ ubahStatus(id, status, ket, hash): bool&lt;br/&gt;+ getRekapKelas(kelas_id): array&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#f0fdf4;strokeColor=#16a34a;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="320" width="280" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="m_jadwal" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#16a34a;color:#ffffff;&quot;&gt;&lt;b&gt;Jadwal&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- db: PDO&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ getAll(): array&lt;br/&gt;+ getByDosen(dosen_id): array&lt;br/&gt;+ getByMahasiswa(mhs_id): array&lt;br/&gt;+ simpan(data): bool&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#f0fdf4;strokeColor=#16a34a;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="640" y="320" width="220" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="m_user" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#16a34a;color:#ffffff;&quot;&gt;&lt;b&gt;User&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- db: PDO&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ findByUsername(username): array&lt;br/&gt;+ verifyPassword(pass, hash): bool&lt;br/&gt;+ create(data): int&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#f0fdf4;strokeColor=#16a34a;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="320" width="220" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="h_format" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#9333ea;color:#ffffff;&quot;&gt;&lt;b&gt;FormatHelper&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ generateHash(nama, nim, tgl, mk, jam, hari, status): string&lt;br/&gt;+ tanggalIndo(tanggal): string&lt;br/&gt;+ badgeStatus(status): string&lt;br/&gt;+ hitungKeterlambatan(masuk, jadwal, toleransi): string&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#faf5ff;strokeColor=#9333ea;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="220" y="560" width="440" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="h_session" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#9333ea;color:#ffffff;&quot;&gt;&lt;b&gt;SessionHelper&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ start(): void&lt;br/&gt;+ isLoggedIn(): bool&lt;br/&gt;+ requireRole(role): void&lt;br/&gt;+ getUser(): array&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#faf5ff;strokeColor=#9333ea;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="720" y="560" width="220" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="d_db" value="&lt;p style=&quot;margin:0px;padding:4px;text-align:center;background-color:#ca8a04;color:#ffffff;&quot;&gt;&lt;b&gt;Database&lt;/b&gt;&lt;/p&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;- instance: PDO&lt;/div&gt;&lt;hr style=&quot;margin:0px;&quot;/&gt;&lt;div style=&quot;text-align:left;padding:6px;&quot;&gt;+ getInstance(): PDO&lt;/div&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;whiteSpace=wrap;fillColor=#fefce8;strokeColor=#ca8a04;rounded=1;shadow=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="750" width="180" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="c_presensi" target="m_presensi" style="endArrow=block;endFill=1;strokeColor=#2563eb;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="c_presensi" target="m_detail" style="endArrow=block;endFill=1;strokeColor=#2563eb;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="c_audit" target="m_detail" style="endArrow=block;endFill=1;strokeColor=#2563eb;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="c_jadwal" target="m_jadwal" style="endArrow=block;endFill=1;strokeColor=#2563eb;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="c_auth" target="m_user" style="endArrow=block;endFill=1;strokeColor=#2563eb;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="m_detail" target="h_format" style="endArrow=open;dashed=1;endFill=0;strokeColor=#9333ea;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="c_auth" target="h_session" style="endArrow=open;dashed=1;endFill=0;strokeColor=#9333ea;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="m_presensi" target="d_db" style="endArrow=block;endFill=1;strokeColor=#ca8a04;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="m_detail" target="d_db" style="endArrow=block;endFill=1;strokeColor=#ca8a04;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="m_jadwal" target="d_db" style="endArrow=block;endFill=1;strokeColor=#ca8a04;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="m_user" target="d_db" style="endArrow=block;endFill=1;strokeColor=#ca8a04;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

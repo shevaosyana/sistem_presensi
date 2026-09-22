@@ -1,0 +1,36 @@
+<mxfile host="Electron" modified="2026-09-01T00:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="act_07" name="Activity Diagram 7: Ubah Status Kehadiran Praktikum">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sl71" value="Input (Aktor)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="30" y="30" width="280" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl72" value="Proses (Sistem/Engine)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="310" y="30" width="320" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl73" value="Output (Dashboard/Layar)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="630" y="30" width="280" height="720" as="geometry" /></mxCell>
+        
+        <mxCell id="s71" value="" style="ellipse;html=1;shape=ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="156" y="80" width="28" height="28" as="geometry" /></mxCell>
+        <mxCell id="a71" value="Pilih Mahasiswa pada Detail Presensi" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="50" y="140" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="a72" value="Ubah Status &amp; Isi Alasan Perubahan" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="50" y="220" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="a73" value="Klik Tombol Simpan Perubahan" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="50" y="300" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="p71" value="Validasi Kelengkapan Alasan" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="300" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="d71" value="Alasan Diisi?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="400" y="390" width="140" height="60" as="geometry" /></mxCell>
+        <mxCell id="o71" value="Tampilkan Peringatan Alasan Kosong" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="650" y="398" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="e71" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="755" y="480" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="p72" value="Update Status &amp; Keterangan di DB" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="510" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="o72" value="Tampilkan Notifikasi Perubahan Berhasil" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="650" y="510" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="e72" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="755" y="590" width="30" height="30" as="geometry" /></mxCell>
+        
+        <mxCell id="ed71" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="s71" target="a71"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed72" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a71" target="a72"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a72" target="a73"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed74" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a73" target="p71"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed75" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p71" target="d71"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed76" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d71" target="o71"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed77" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o71" target="e71"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed78" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d71" target="p72"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed79" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p72" target="o72"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed710" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o72" target="e72"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

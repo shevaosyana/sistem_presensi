@@ -1,0 +1,159 @@
+@startuml ClassDiagram
+skinparam classAttributeIconSize 0
+skinparam class {
+    BackgroundColor White
+    ArrowColor Black
+    BorderColor Black
+}
+
+class Role #e0f2fe ##0284c7 {
+    + id : Integer [PK]
+    + nama_role : String(50) [UK]
+}
+
+class User #e0f2fe ##0284c7 {
+    + id : Integer [PK]
+    + role_id : Integer [FK]
+    + username : String(64) [UK]
+    + password : String(255)
+    + is_active : Boolean
+}
+
+class ProgramStudi #d1fae5 ##059669 {
+    + id : Integer [PK]
+    + kode : String(20) [UK]
+    + nama : String(100)
+    + jenjang : Enum
+    + fakultas : String(100)
+}
+
+class Dosen #e0f2fe ##0284c7 {
+    + id : Integer [PK]
+    + user_id : Integer [FK]
+    + prodi_id : Integer [FK]
+    + nidn : String(20) [UK]
+    + nama : String(100)
+    + jenis_kelamin : Enum
+    + foto : String(255)
+}
+
+class Mahasiswa #e0f2fe ##0284c7 {
+    + id : Integer [PK]
+    + user_id : Integer [FK]
+    + prodi_id : Integer [FK]
+    + nim : String(20) [UK]
+    + nama : String(100)
+    + jenis_kelamin : Enum
+    + angkatan : Year
+    + foto : String(255)
+}
+
+class TahunAkademik #d1fae5 ##059669 {
+    + id : Integer [PK]
+    + nama : String(20) [UK]
+    + tahun_mulai : Year
+    + tahun_selesai : Year
+    + status : Enum
+}
+
+class Semester #d1fae5 ##059669 {
+    + id : Integer [PK]
+    + tahun_akademik_id : Integer [FK]
+    + nama_semester : Enum
+    + is_aktif : Boolean
+}
+
+class MataKuliah #d1fae5 ##059669 {
+    + id : Integer [PK]
+    + prodi_id : Integer [FK]
+    + kode : String(20) [UK]
+    + nama : String(100)
+    + sks : Integer
+    + jenis : Enum
+}
+
+class Kelas #e9d5ff ##7c3aed {
+    + id : Integer [PK]
+    + mata_kuliah_id : Integer [FK]
+    + dosen_id : Integer [FK]
+    + semester_id : Integer [FK]
+    + nama : String(50)
+    + kapasitas : Integer
+}
+
+class Ruangan #d1fae5 ##059669 {
+    + id : Integer [PK]
+    + kode : String(20) [UK]
+    + nama : String(100)
+    + kapasitas : Integer
+    + gedung : String(50)
+}
+
+class KelasAnggota #e9d5ff ##7c3aed {
+    + id : Integer [PK]
+    + kelas_id : Integer [FK]
+    + mahasiswa_id : Integer [FK]
+}
+
+class Jadwal #e9d5ff ##7c3aed {
+    + id : Integer [PK]
+    + kelas_id : Integer [FK]
+    + ruangan_id : Integer [FK]
+    + hari : Enum
+    + jam_mulai : Time
+    + jam_selesai : Time
+    + toleransi_menit : Integer
+}
+
+class Presensi #ffedd5 ##ea580c {
+    + id : Integer [PK]
+    + jadwal_id : Integer [FK]
+    + tanggal : Date
+    + jam_buka : Time
+    + jam_tutup : Time
+    + status : Enum
+    + pertemuan_ke : Integer
+    + keterangan : Text
+    ..
+    + bukaSesi() : Boolean
+    + tutupSesi() : Boolean
+}
+
+class DetailPresensi #ffedd5 ##ea580c {
+    + id : Integer [PK]
+    + presensi_id : Integer [FK]
+    + mahasiswa_id : Integer [FK]
+    + status : Enum
+    + jam_presensi : Time
+    + keterangan : Text
+    + hash_integrity : String(255)
+    ..
+    + verifikasiHash() : Boolean
+}
+
+Role "1" <-- "0..*" User : memiliki
+User "1" <-- "1" Mahasiswa : sebagai
+User "1" <-- "1" Dosen : sebagai
+
+ProgramStudi "1" <-- "0..*" Mahasiswa : terdaftar di
+ProgramStudi "1" <-- "0..*" Dosen : mengajar di
+ProgramStudi "1" <-- "0..*" MataKuliah : memiliki
+
+TahunAkademik "1" <-- "1..*" Semester : memiliki
+
+MataKuliah "1" <-- "0..*" Kelas : diajarkan pada
+Dosen "1" <-- "0..*" Kelas : mengampu
+Semester "1" <-- "0..*" Kelas : diadakan pada
+
+Kelas "1" <-- "0..*" KelasAnggota : berisikan
+Mahasiswa "1" <-- "0..*" KelasAnggota : mengikuti
+
+Kelas "1" <-- "1..*" Jadwal : dijadwalkan
+Ruangan "1" <-- "0..*" Jadwal : menempati
+
+Jadwal "1" <-- "0..*" Presensi : mencatat sesi
+
+Presensi "1" <-- "0..*" DetailPresensi : memiliki record
+Mahasiswa "1" <-- "0..*" DetailPresensi : riwayat kehadiran
+
+@enduml

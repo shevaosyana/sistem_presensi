@@ -1,0 +1,35 @@
+<mxfile host="Electron" modified="2026-09-01T00:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="act_05" name="Activity Diagram 5: Presensi Mandiri Praktikan">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sl51" value="Input (Aktor)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="30" y="30" width="280" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl52" value="Proses (Sistem/Engine)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="310" y="30" width="320" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl53" value="Output (Dashboard/Layar)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="630" y="30" width="280" height="720" as="geometry" /></mxCell>
+        
+        <mxCell id="s51" value="" style="ellipse;html=1;shape=ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="156" y="80" width="28" height="28" as="geometry" /></mxCell>
+        <mxCell id="a51" value="Buka Menu Presensi Praktikum" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="60" y="140" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="a52" value="Klik Tombol Presensi Sekarang" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="60" y="220" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="p51" value="Cek Status Sesi &amp; Hitung Selisih Waktu" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="220" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="d51" value="Dalam Toleransi Waktu?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="380" y="310" width="180" height="60" as="geometry" /></mxCell>
+        <mxCell id="p52" value="Set Status 'HADIR' &amp; Simpan DB" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="410" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="p53" value="Set Status 'TERLAMBAT' &amp; Simpan DB" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="510" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="o51" value="Tampilkan Status 'HADIR'" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="660" y="410" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="o52" value="Tampilkan Status 'TERLAMBAT'" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="660" y="510" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="e51" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="755" y="600" width="30" height="30" as="geometry" /></mxCell>
+        
+        <mxCell id="ed51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="s51" target="a51"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a51" target="a52"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a52" target="p51"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p51" target="d51"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed55" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d51" target="p52"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed56" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d51" target="p53"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p52" target="o51"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p53" target="o52"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o51" target="e51"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed510" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o52" target="e51"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

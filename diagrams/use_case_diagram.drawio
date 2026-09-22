@@ -1,0 +1,139 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="usecase_diagram" name="Use Case Presensi Perkuliahan">
+    <mxGraphModel dx="1549" dy="935" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1000" pageHeight="950" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- System Boundary (Black & White Style) -->
+        <mxCell id="system" parent="1" style="swimlane;whiteSpace=wrap;html=1;startSize=30;collapsible=0;dropTarget=0;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;fontStyle=1;" value="Sistem Informasi Presensi Perkuliahan" vertex="1">
+          <mxGeometry height="840" width="560" x="240" y="40" as="geometry" />
+        </mxCell>
+        
+        <!-- Actors (Black & White UML Stick Figures) -->
+        <mxCell id="admin" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Admin Akademik" vertex="1">
+          <mxGeometry height="80" width="40" x="80" y="160" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="dosen" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Dosen Pengampu" vertex="1">
+          <mxGeometry height="80" width="40" x="80" y="520" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="mahasiswa" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Mahasiswa" vertex="1">
+          <mxGeometry height="80" width="40" x="850" y="440" as="geometry" />
+        </mxCell>
+
+        <!-- Use Cases (Plain White Fill & Black Stroke like Gambar 1) -->
+        <mxCell id="uc_login" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Login" vertex="1">
+          <mxGeometry height="50" width="140" x="390" y="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_kelola_master" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Kelola Data Master" vertex="1">
+          <mxGeometry height="50" width="150" x="330" y="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_crud" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="CRUD Data Master" vertex="1">
+          <mxGeometry height="50" width="150" x="590" y="140" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_konfig" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Konfigurasi Kelas &amp;amp; Jadwal" vertex="1">
+          <mxGeometry height="50" width="170" x="330" y="220" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_rekap" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Rekap Kehadiran" vertex="1">
+          <mxGeometry height="50" width="150" x="390" y="320" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_cetak" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Cetak Laporan" vertex="1">
+          <mxGeometry height="50" width="140" x="590" y="320" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_lihat_jadwal" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Melihat Jadwal" vertex="1">
+          <mxGeometry height="50" width="150" x="390" y="420" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_buka_sesi" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Buka Sesi Presensi" vertex="1">
+          <mxGeometry height="50" width="150" x="330" y="520" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_tutup_sesi" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Tutup Sesi Presensi" vertex="1">
+          <mxGeometry height="50" width="150" x="330" y="610" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_auto_alpha" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Auto-Alpha" vertex="1">
+          <mxGeometry height="50" width="130" x="590" y="610" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_ubah_status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Ubah Status Kehadiran" vertex="1">
+          <mxGeometry height="50" width="160" x="330" y="700" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc_presensi_mandiri" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontColor=#000000;" value="Presensi Mandiri" vertex="1">
+          <mxGeometry height="50" width="150" x="480" y="790" as="geometry" />
+        </mxCell>
+
+        <!-- Include Relationships (Dashed Arrows) -->
+        <mxCell id="inc1" edge="1" parent="1" source="uc_kelola_master" style="edgeStyle=none;html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;strokeColor=#000000;fontColor=#000000;" target="uc_crud" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="inc2" edge="1" parent="1" source="uc_rekap" style="edgeStyle=none;html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;strokeColor=#000000;fontColor=#000000;" target="uc_cetak" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="inc3" edge="1" parent="1" source="uc_tutup_sesi" style="edgeStyle=none;html=1;verticalAlign=bottom;endArrow=open;endFill=0;dashed=1;strokeColor=#000000;fontColor=#000000;" target="uc_auto_alpha" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Admin Associations (Solid Lines) -->
+        <mxCell id="adm_1" edge="1" parent="1" source="admin" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="adm_2" edge="1" parent="1" source="admin" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_kelola_master">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="adm_3" edge="1" parent="1" source="admin" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_konfig">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="adm_5" edge="1" parent="1" source="admin" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_rekap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Dosen Associations (Solid Lines) -->
+        <mxCell id="dos_1" edge="1" parent="1" source="dosen" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dos_2" edge="1" parent="1" source="dosen" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_lihat_jadwal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dos_3" edge="1" parent="1" source="dosen" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_buka_sesi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dos_4" edge="1" parent="1" source="dosen" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_tutup_sesi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dos_5" edge="1" parent="1" source="dosen" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_ubah_status">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dos_6" edge="1" parent="1" source="dosen" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_rekap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Mahasiswa Associations (Solid Lines) -->
+        <mxCell id="mhs_1" edge="1" parent="1" source="mahasiswa" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mhs_2" edge="1" parent="1" source="mahasiswa" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_lihat_jadwal">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mhs_3" edge="1" parent="1" source="mahasiswa" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_presensi_mandiri">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="mhs_4" edge="1" parent="1" source="mahasiswa" style="edgeStyle=none;html=1;endArrow=none;endFill=0;strokeColor=#000000;" target="uc_rekap">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

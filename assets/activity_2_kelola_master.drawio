@@ -1,0 +1,36 @@
+<mxfile host="Electron" modified="2026-09-01T00:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="act_02" name="Activity Diagram 2: Kelola Data Master Praktikum">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="960" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sl21" value="Input (Aktor)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="30" y="30" width="280" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl22" value="Proses (Sistem/Engine)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="310" y="30" width="320" height="720" as="geometry" /></mxCell>
+        <mxCell id="sl23" value="Output (Dashboard/Layar)" style="swimlane;whiteSpace=wrap;html=1;startSize=32;fontStyle=1;fontSize=14;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="630" y="30" width="280" height="720" as="geometry" /></mxCell>
+        
+        <mxCell id="s21" value="" style="ellipse;html=1;shape=ellipse;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="156" y="80" width="28" height="28" as="geometry" /></mxCell>
+        <mxCell id="a21" value="Pilih Menu Master Praktikum" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="60" y="140" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="a22" value="Input / Edit Form Data Master" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="60" y="220" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="a23" value="Klik Tombol Simpan / Hapus" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="60" y="300" width="220" height="44" as="geometry" /></mxCell>
+        <mxCell id="p21" value="Validasi Kelengkapan &amp;&#10;Cek Duplikasi Data Master" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="300" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="d21" value="Data Valid?" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="400" y="390" width="140" height="60" as="geometry" /></mxCell>
+        <mxCell id="o21" value="Tampilkan Peringatan Data Invalid" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="650" y="398" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="e21" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="755" y="480" width="30" height="30" as="geometry" /></mxCell>
+        <mxCell id="p22" value="Query Exec (Insert/Update/Delete)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="350" y="510" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="o22" value="Tampilkan Pesan Sukses &amp;&#10;Refresh Tabel Master" style="rounded=1;whiteSpace=wrap;html=1;arcSize=30;fillColor=#ffffff;strokeColor=#000000;fontSize=12;fontStyle=0;" vertex="1" parent="1"><mxGeometry x="650" y="510" width="240" height="44" as="geometry" /></mxCell>
+        <mxCell id="e22" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#000000;" vertex="1" parent="1"><mxGeometry x="755" y="590" width="30" height="30" as="geometry" /></mxCell>
+        
+        <mxCell id="ed21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="s21" target="a21"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a21" target="a22"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a22" target="a23"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="a23" target="p21"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p21" target="d21"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed26" value="Tidak" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d21" target="o21"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o21" target="e21"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed28" value="Ya" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="d21" target="p22"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="p22" target="o22"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ed210" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;fontSize=11;strokeColor=#000000;" edge="1" parent="1" source="o22" target="e22"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,46 @@
+<mxfile host="Electron" modified="2026-09-01T00:00:00.000Z" agent="Mozilla/5.0" version="21.5.0" type="device">
+  <diagram id="seq_02" name="Sequence Diagram 2: Kelola Data Master Praktikum">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="980" pageHeight="680" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <mxCell id="actor_icon" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#ffffff;strokeColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="55" y="35" width="30" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="actor_label" value="Admin Lab" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="35" y="92" width="70" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="box_view" value="View (master_praktikum.php)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="200" y="45" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_ctrl" value="MasterController" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="440" y="45" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_model" value="MasterModel" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="660" y="45" width="140" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="box_db" value="Database MySQL" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=12;fillColor=#ffffff;strokeColor=#000000;fontStyle=1;fontSize=12;" vertex="1" parent="1">
+          <mxGeometry x="840" y="35" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="line_actor" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="70" y="115" as="sourcePoint" /><mxPoint x="70" y="480" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_view" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="290" y="85" as="sourcePoint" /><mxPoint x="290" y="480" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_ctrl" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="510" y="85" as="sourcePoint" /><mxPoint x="510" y="480" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_model" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="730" y="85" as="sourcePoint" /><mxPoint x="730" y="480" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="line_db" value="" style="endArrow=none;dashed=1;html=1;strokeColor=#000000;strokeWidth=1;" edge="1" parent="1"><mxGeometry width="50" height="50" relative="1" as="geometry"><mxPoint x="900" y="85" as="sourcePoint" /><mxPoint x="900" y="480" as="targetPoint" /></mxGeometry></mxCell>
+
+        <mxCell id="m1" value="1. Pilih Menu Data Master (Lab/Modul/Dosen/Aslab/Mhs)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="70" y="130" as="sourcePoint" /><mxPoint x="290" y="130" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m2" value="2. Input / Edit Form Data &amp; Klik Simpan" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="70" y="165" as="sourcePoint" /><mxPoint x="290" y="165" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m3" value="3. POST /master/store {data}" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="290" y="200" as="sourcePoint" /><mxPoint x="510" y="200" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m4" value="4. validateMasterData(data)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="230" as="sourcePoint" /><mxPoint x="510" y="260" as="targetPoint" /><Array as="points"><mxPoint x="550" y="230" /><mxPoint x="550" y="260" /></Array></mxGeometry></mxCell>
+        <mxCell id="m5" value="5. saveMaster(data)" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="290" as="sourcePoint" /><mxPoint x="730" y="290" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m6" value="6. INSERT / UPDATE data_master" style="html=1;verticalAlign=bottom;endArrow=block;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="730" y="325" as="sourcePoint" /><mxPoint x="900" y="325" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m7" value="7. DB Result Success" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="900" y="355" as="sourcePoint" /><mxPoint x="730" y="355" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m8" value="8. Return status true" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="730" y="385" as="sourcePoint" /><mxPoint x="510" y="385" as="targetPoint" /></mxGeometry></mxCell>
+        <mxCell id="m9" value="9. Tampilkan Pesan Sukses &amp; Refresh Tabel" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;edgeStyle=elbowEdgeStyle;elbow=vertical;strokeColor=#000000;fontSize=11;" edge="1" parent="1"><mxGeometry relative="1" as="geometry"><mxPoint x="510" y="415" as="sourcePoint" /><mxPoint x="70" y="415" as="targetPoint" /></mxGeometry></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
